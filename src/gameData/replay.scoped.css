@@ -1,0 +1,12 @@
+.publishReplay{
+    background-color: var(--settingsbg) !important;
+    color: var(--main) !important;
+    font-family: 'Cygre' !important;
+    font-size: clamp(1rem, 5vw, 1.5rem) !important;
+    transition: background-color .3s ease;
+}
+
+.publishReplay:hover{
+    background-color: var(--settingsbghover) !important;
+    outline: none !important;
+}

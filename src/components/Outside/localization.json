@@ -1,0 +1,32 @@
+{
+    "ru": {
+        "about": "О проекте",
+        "aboutInfo": "Game Collection From Your Grandad's Attic – набор многопользовательских разножанровых игр для вечеринок и посиделок. Здесь, люди подключаются через сайт-контроллер, удалённо отправляя ответы взаимодействуя с игрой. Проще говоря –",
+        "aboutInfo2": ", только со своими идеями и задумками.",
+        "gameCollection": "Набор игр",
+        "createTicketTesting": "Подать заявку на тестирование",
+        "createTicketHelp": "Помочь нам",
+        "betaTesting": "Бета-тест первой игры скоро!",
+        "betaTestingSub": "Только дайте нам её доделать 🥹",
+        "news_Socials": "Узнавайте о нас больше!",
+        "news_SocialsDesc": "Узнавайте о нас больше благодаря различным соц-сетям и платформам.",
+        "news_FirstGame": "Первая игра уже в разработке",
+        "news_FirstGameDesc": "Узнайте о \"Импрови2ции\" ниже.",
+        "games_imp2": "Импрови2ция"
+    },
+    "en": {
+        "about": "About",
+        "aboutInfo": "Game Collection From Your Grandad's Attic – is a collection of multiplayer, multi-genre games for parties. People connect trough a controller, remotely interacting with the game. Simply, it's ",
+        "aboutInfo2": ", but with our own ideas.",
+        "gameCollection": "Game Collection",
+        "createTicketTesting": "Apply for beta testing",
+        "createTicketHelp": "Help us",
+        "betaTesting": "Beta testing of first game will coming soon!",
+        "betaTestingSub": "Just let us finish the game 🥹",
+        "news_Socials": "Learn more about us!",
+        "news_SocialsDesc": "Learn more about us trough socials and platforms.",
+        "news_FirstGame": "First game is in developement",
+        "news_FirstGameDesc": "Learn about \"2improvise\" below.",
+        "games_imp2": "2improvise"
+    }
+}

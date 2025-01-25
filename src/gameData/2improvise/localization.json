@@ -1,0 +1,41 @@
+{
+    "ru":{
+        "startGame": "Начать игру",
+        "chooseYourGroup": "Выберите группу:",
+        "quitGroup": "Выйти",
+        "rateByPrompt": "На сколько хорошо пара справилась со своей темой?",
+        "rateByScene": "Как вы оцениваете сценку в целом?",
+        "rateByEmotion": "Какой сцена была по настроению?",
+        "ready": "Готово",
+        "send": "Отправить",
+        "chosen": "Выбрано",
+        "thanksForVote": "Спасибо за голос!",
+        "getReadyForPrompt": "Вы и {P} импровизируете!",
+        "chooseTitle": "Выберите заголовок:",
+        "theme": "Тема:",
+        "wellDone": ["Отлично сработано!", "Хорошая работа!", "Дай пять!", "Аплодисменты!"],
+        "thanksForPlaying": "Спасибо за игру!",
+        "retakeGame": "Повторим?",
+        "publishReplay": "Опубликовать повтор",
+        "skipTutorial": "Пропустить обучение",
+        "points": ["балл", "балла", "баллов"]
+    },
+    "en":{
+        "startGame": "Start game",
+        "quitGroup": "Quit",
+        "chooseYourGroup": "Choose Your Group:",
+        "rateByPrompt": "На сколько хорошо пара справилась со своей темой?",
+        "rateByScene": "Как вы оцениваете сценку в целом?",
+        "ready": "Ready",
+        "points": ["point", "points", "points"],
+        "send": "Send",
+        "chosen": "Chosen",
+        "thanksForVote": "Thanks for vote!",
+        "getReadyForPrompt": "You and {P} are improvising!",
+        "theme": "Prompt:",
+        "wellDone": ["Well Done!", "Good Job!", "High Five!", "Applause!"],
+        "thanksForPlaying": "Thanks for playing!",
+        "retakeGame": "Restart?",
+        "skipTutorial": "Skip Tutorial"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "ru":{
+      "error": "Ошибка",
+      "oops": "Упс",
+      "YOU_JOIN": "Вы уже вошли.",
+      "INVALID_NICKNAME": "Вы не ввели никнейм.",
+      "NICKNAME_IS_LONG": "Ваш никнейм слишком длинный.",
+      "ROOM_NOT_FOUND": "Комната не найдена.",
+      "GAME_STARTED": "Игра уже началась.",
+      "ROOM_FULL": "Комната заполнена.",
+      "NICKNAME_BUSY": "Никнейм занят",
+      "ERROR_JOIN": "Ошибка входа",
+      "roomDestroyed": "Комната была жестоко уничтожена...",
+      "KK": "Кк",
+      "wellwellwell": "Так-так-так...",
+      "gameIsUnavalible": "Похоже, эта игра пока недоступна.",
+      "CURSE_WORD_FILTER_NAME": "В настройках комнаты включён фильтр брани. Пожалуйста, введите другой никнейм."
+    },
+    "en":{
+      "error": "Error",
+      "oops": "Oops",
+      "YOU_JOIN": "You arleady in.",
+      "NICKNAME_IS_LONG": "Your nickname is long.",
+      "INVALID_NICKNAME": "You didn't enter nickname.",
+      "ROOM_NOT_FOUND": "Room not found.",
+      "GAME_STARTED": "Game has started.",
+      "ROOM_FULL": "Room is full.",
+      "NICKNAME_BUSY": "Nickname is taken??? idk",
+      "ERROR_JOIN": "Join error",
+      "roomDestroyed": "The room was cruelly destroyed...",
+      "KK": "Kk",
+      "wellwellwell": "Well, well, well...",
+      "gameIsUnavalible": "Seems that this game is unavailable.",
+      "CURSE_WORD_FILTER_NAME": "In room settings, the profanity filter is enabled. Please, enter another nickname."
+    }
+}

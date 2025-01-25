@@ -1,0 +1,63 @@
+{
+    "ru":{
+      "nickname": "НИКНЕЙМ",
+      "roomcode": "КОД КОМНАТЫ",
+      "play": "ИГРАТЬ",
+      "settings_ourSite": "Наш сайт",
+      "settings_language": "Язык",
+      "settings_games": "Игры",
+      "settings_theme": "Тема",
+      "settings_alt": "Иконка настроек",
+      "reconnect": "ПЕРЕПОДКЛЮЧИТЬСЯ",
+      "players": "игроков",
+      "minutes": "минут",
+      "roomNotFound": "Комната не найдена :(",
+      "changeLanguage": "Сменить язык:",
+      "notification": "Уведомление",
+      "uaConnectionTroubles": "Подключение может работать некоректно в Украине. Приносим свои извинения, мы ещё разбираемся с этой проблемой.",
+      "close": "Закрыть",
+      "developersFckedUp": "При обнаружении любых ашибок: Просьба сообщить о них на наш Discord-сервер.",
+      "gameRecaps": "Повторы игр",
+      "lastNews": "Последние новости",
+      "recapsText": "Все повторы игр в одном удобном месте!",
+      "recapsStoshka": "Хы",
+      
+      "defaultPost01": "Узнать больше",
+
+      "games": {
+        "2improvise": "Импрови2ция"
+      },
+      "socials":{
+        "ds": "Discord-сервер"
+      }
+    },
+    "en":{
+      "nickname": "NICKNAME",
+      "roomcode": "ROOM CODE",
+      "play": "PLAY",
+      "settings_ourSite": "Our Site",
+      "settings_language": "Language",
+      "settings_games": "Games",
+      "settings_theme": "Appearance",
+      "settings_alt": "Settings Icon",
+      "reconnect": "REJOIN",
+      "players": "players",
+      "minutes": "minutes",
+      "roomNotFound": "Room not found :(",
+      "changeLanguage": "Change lanugage:",
+      "close": "Close",
+      "developersFckedUp": "If you find any mistakes: Please report them to our Discord server.",
+      "gameRecaps": "Game Recaps",
+      "lastNews": "Last News",
+      "recapsText": "All of game recaps in one convenient place!",
+      "recapsStoshka": "Yay!",
+      "defaultPost01": "Learn more",
+
+      "games": {
+        "2improvise": "2improvise"
+      },
+      "socials":{
+        "ds": "Discord server"
+      }
+    }
+}

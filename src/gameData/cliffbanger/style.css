@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'crooker';
+    src: url(fonts/The\ Crooker.otf);
+}
+
+@font-face {
+    font-family: 'snf';
+    src: url(fonts/SNFBSTRD_\ handwrite.ttf);
+}
+
+@font-face {
+    font-family: 'pershot';
+    src: url(fonts/Pershotravneva55.ttf);
+}
+
+@keyframes bounceButton {
+    0%{
+        scale: 1.1;
+    }
+    100%{
+        scale: 1;
+    }
+}
+
+.cliff{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-image: url(draw-bg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: 'snf';
+    text-align: center;
+    color: #fff;
+
+    button{
+        padding: 15px 0px;
+        font-family: 'snf';
+        width: 70%;
+        max-width: 800px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: clamp(7px, 4vw, 17px);
+        background-color: rgb(112, 31, 31);
+        color: #fff;
+        border: none;
+    }
+
+    .PubName{
+        z-index: 999;
+        pointer-events: none;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        text-align: center;
+        margin: 5px 0;
+        font-family: 'pershot';
+        font-size: clamp(20px, 12vw, 40px);
+        text-shadow: 0 -6px 0 #00000083;
+    }
+    .logo{
+        max-width: 1200px;
+        font-size: clamp(50px, 12vw, 150px);
+        font-family: 'pershot';
+        text-align: center;
+        margin: 0;
+    }
+}
+
+.cliffvoting{
+    display: flex;
+    gap: 20px;
+
+    h3{
+        font-size: clamp(25px, 2vw, 35px);
+        margin: 5px 0 15px 0;
+    }
+
+    .cardBlock img{
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .original{
+        scale: 0.9;
+    }
+
+    .cardBlock p{
+        margin: 0;
+        padding: 5px 0;
+        font-size: 12px;
+        background-color: black;
+    }
+
+    .gameCard:hover{
+        scale: 1.05;
+        cursor: pointer;
+    }
+
+    .cardBlock{
+        outline: #fff 5px solid;
+        max-width: 200px;
+        border-radius: 10px;
+        background-color: aliceblue;
+        transition: scale .3s ease;
+    }
+
+    .cardsBottom{
+        background-color: rgba(0, 0, 0, 0.76);
+        padding: 20px 17px;
+        border-radius: 20px;
+        gap: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .cardBlocks{
+        gap: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    svg{
+        max-height: 240px;
+        max-width: 200px;
+        aspect-ratio: 5 / 6;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.clifflobby{
+    h3{
+        font-size: clamp(25px, 2vw, 35px);
+        margin: 5px 0 15px 0;
+    }
+}
+
+.draw{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-image: url(draw-bg.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    .canvasBlock{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+        width: calc(100% - 40px);
+        margin-top: 10px;
+        max-width: 500px;
+        height: calc(100% - 40px);
+    }
+
+    canvas{
+        border-radius: 10px;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        outline: 5px solid #fff;
+    }
+
+    .canvasParent{
+        max-width: 500px;
+        max-height: 600px;
+        aspect-ratio: 5/6;
+    }
+
+    .canvasBlock div{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .layerButton{
+        padding: 15px 0px;
+        font-family: 'snf';
+        width: 50%;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: clamp(7px, 4vw, 17px);
+        background-color: rgb(112, 31, 31);
+        color: #fff;
+        border: none;
+    }
+
+    .chosen{
+        background-color: rgb(149, 42, 42);
+        outline: 2px #fff solid;
+        animation: bounceButton .5s cubic-bezier(0.09, 1.75, 0.48, 0.86);
+    }
+
+    .layerButtonUndo{
+        width: 90px;
+        height: 50px;
+        border-radius: 7px;
+
+        padding: 15px 0px;
+        font-family: 'snf';
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: clamp(7px, 4vw, 17px);
+        background-color: rgb(112, 31, 31);
+        color: #fff;
+        border: none;
+    }
+
+    .task{
+        font-family: 'snf';
+        text-align: center;
+        color: #fff;
+        font-size: clamp(10px, 5vw, 35px);
+        margin: 4px 0;
+    }
+
+    .range{
+        width: 100%;
+    }
+    input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none; 
+        width: 100%;
+        cursor: pointer;
+        outline: none;
+        background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(247,255,0,1) 50%, rgba(20,255,0,1) 100%);
+        overflow: hidden;
+        background-color: transparent;
+        border-radius: 7px 30px 30px 7px;
+        background-image: url(slider-brush.svg);
+        background-size: cover;
+        background-position-y: center;
+        background-repeat: no-repeat;
+        padding: 0 5px;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none; 
+        width: 35px;
+        aspect-ratio: 1;
+        background-color: rgb(255, 255, 255);
+        border-radius: 35px;
+        border: none;
+
+      }
+}

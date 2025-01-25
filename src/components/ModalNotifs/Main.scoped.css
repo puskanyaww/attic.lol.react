@@ -1,0 +1,76 @@
+@keyframes showModal0 {
+    0%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    100%{
+        background-color: rgba(0, 0, 0, 0.822);
+    }
+}
+
+@keyframes showModal1 {
+    0%{
+        scale: 0.7;
+        opacity: 0;
+    }
+    70%{
+        scale:  1.05;
+    }
+}
+
+.Modal{
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.822);
+    animation: showModal0 .4s ease;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.Modal .Window{
+    min-height: 120px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: var(--bg);
+    color: var(--main);
+    font-family: 'Cyrge';
+    outline: 1px solid var(--main);
+    animation: showModal1 .4s cubic-bezier(0.15, 0.59, 0.26, 1.23);
+}
+
+.Modal .Window h1{
+    margin: 5px 0;
+}
+
+.Modal .Window p{
+    margin: 0 0 10px 0;
+}
+
+.Modal .Window button{
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-family: 'Cyrge';
+    background-color: var(--main);
+    color: var(--bg);
+    cursor: pointer;
+}
+
+.Modal .Window button:hover{
+    opacity: .85;
+}
+
+.Modal .Window button:active{
+    opacity: 0.6;
+}
