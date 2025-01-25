@@ -33,6 +33,7 @@ code {
   --darker: #787673;
   --settingsbg: #111111;
   --settingsbghover: #1a1a1a;
+  --formLine: var(--main);
   --bg: rgb(12, 12, 12);
 }
 
@@ -42,6 +43,7 @@ code {
   --darker: #787673;
   --settingsbg: #eae6e0;
   --settingsbghover: #dedbd5;
+  --formLine: #787673;
   --bg: #ffffff;
 }
 

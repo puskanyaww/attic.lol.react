@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import io from 'socket.io-client';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Enterer, { mem } from './components/Enterer/Enterer.tsx';
+import Enterer from './components/Enterer/Enterer.tsx';
 import Recaps, { RecapInfoView } from './components/Recaps/Recaps.tsx';
 import ModalWindow from './components/ModalNotifs/ModalNotifs.tsx';
 //games
@@ -13,6 +13,7 @@ import Improvise2 from './gameData/2improvise/2improvise.tsx';
 // import AtticOutside from './components/Outside/Outside.tsx';
 import { locale } from './utils/locale.ts';
 import TestGame from './gameData/testGame/testGame.jsx';
+import EntererLoader from './components/Enterer/Enterer.tsx';
 
 
 const getLocaleByIp = async () => {
@@ -25,7 +26,7 @@ const getLocaleByIp = async () => {
       'UA': 'ru'
     };
     if(country ==="UA"){
-      localStorage.setItem('uanotificated', "0")
+      localStorage.setItem('ua_notif', "0")
     }
     const language = lc[country] || 'en';
     return language;
@@ -36,15 +37,25 @@ const getLocaleByIp = async () => {
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
+
+if(!localStorage.getItem("locale")){
+  const locale = await getLocaleByIp();
+  console.log(locale)
+  localStorage.setItem("locale", locale)
+}
+
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-export const socket = io(false ? "http://localhost:4020" : "wss://trgu.ru", {transports: ['websocket', 'polling', 'flashsocket']});
+
+export const isLocalTesting = false
+const serverUrl = isLocalTesting ? "http://localhost:4020" : "wss://trgu.ru"
+export const socket = io(serverUrl, {transports: ['websocket', 'polling', 'flashsocket']});
 
 const AppManifest = {
-  rc: <Enterer />,
+  rc: <EntererLoader />,
   "2improvise": <Improvise2 />,
   testGame: <TestGame/>
 };
@@ -60,12 +71,6 @@ function ServerUrlConnection(){
   return <div style={{backgroundColor: '#fff'}}>
     Connection status: {status}
   </div>
-}
-
-if(!localStorage.getItem("locale")){
-  const locale = await getLocaleByIp();
-  console.log(locale)
-  localStorage.setItem("locale", locale)
 }
 
 function App(){
@@ -99,6 +104,17 @@ function App(){
 
   socket.on("errorJoin", (data) => {
     openModal("ERROR_JOIN", data, false)
+  })
+
+  const init = () => {
+    if(localStorage.getItem("ua_notif") === "0"){
+      openModal('ua_server_trouble', 'ua_st_desc', false)
+      localStorage.setItem("ua_notif", "1")
+    }
+  }
+
+  useEffect(() => {
+    return () => init()
   })
 
   return (

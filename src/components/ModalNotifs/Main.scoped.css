@@ -18,6 +18,33 @@
     }
 }
 
+@keyframes CloseModal0 {
+    0%{
+        background-color: rgba(0, 0, 0, 0.822);
+    }
+
+    100%{
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+@keyframes CloseModal1 {
+    100%{
+        scale: 0.3;
+        opacity: 0;
+    }
+}
+
+.closing{
+    animation: CloseModal0 .3s ease forwards !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+.closing .Window{
+    animation: CloseModal1 .2s cubic-bezier(0.7, 0.22, 0.88, 0.45) forwards !important;
+}
+
 .Modal{
     position: fixed;
     display: flex;
@@ -38,7 +65,8 @@
     min-height: 120px;
     box-sizing: border-box;
     width: 100%;
-    max-width: 400px;
+    min-width: 240px;
+    max-width: 600px;
     border-radius: 15px;
     padding: 20px;
     background-color: var(--bg);
