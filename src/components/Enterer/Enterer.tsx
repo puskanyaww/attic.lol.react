@@ -12,7 +12,7 @@ import 'swiper/css/scrollbar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import packageJSON from '../../../package.json'
-import { socket } from '../../index.tsx';
+import {socket} from '../../index.tsx';
 
 import defNew01 from './thumb01mewhenlasagnapuskanyaww.png'
 import imp2 from './2imp.png'
@@ -101,6 +101,8 @@ function Enterer({isTwitchLogined}:EntererBlock){
     const [isTwitch, setIsTwitch] = useState<boolean>(isTwitchLogined)
     const [roomStatusDisplay, setRoomStatus] = useState("waiting");
     const [ruMR, setRuMr] = useState(Math.random());
+    const [twitchReq, setTwitchReq] = useState<boolean>(false)
+    const [ConnectionResolve, setUnresolved] = useState<boolean>(true)
 
     const toggleLanguage = () => {
         const newLocale = locales.indexOf(curLoc) + 1 < locales.length ? locales[locales.indexOf(curLoc) + 1] : locales[0];
@@ -241,6 +243,7 @@ function Enterer({isTwitchLogined}:EntererBlock){
         setJoinButtonStatus(0);
         setJoinButtonctive(0);
         setRoomStatus("waiting");
+        setTwitchReq(false)
         if (data.length === 4) showGameInfo();
     };
 
@@ -248,16 +251,17 @@ function Enterer({isTwitchLogined}:EntererBlock){
         socket.emit("isRoomDef", rc);
         return new Promise((resolve) => {
             socket.on("isRoomDef", (isDef) => {
-                resolve(isDef.res === "EXISTS");
+                resolve(isDef);
             })
         })
     }
 
     const showGameInfo = async () => {
-        const result = await checkIsRoomExists(code);
+        const result:any = await checkIsRoomExists(code);
         if (code.length !== 4) return
         setRuMr(Math.random());
-        if(result){
+        if(result.res === "EXISTS"){
+            setTwitchReq(result.twitch)
             setJoinButtonctive(1);
             if(code === mem('code')){
                 setJoinButtonStatus(1);
@@ -278,19 +282,37 @@ function Enterer({isTwitchLogined}:EntererBlock){
         }
     };
 
+    const forgetCurrentRoom = () => {
+        setRcValue(""); setJoinButtonctive(0); setJoinButtonStatus(0); localStorage.removeItem("code")
+    }
+
     const tryConnect = (event:any) => {
         event.preventDefault();
-        if (rcValue.length !== 4) return;
+        if (rcValue.length !== 4 || !ConnectionResolve || roomStatusDisplay === "notFound") return;
+        setUnresolved(false)
+        const isAudienceJoin = event.nativeEvent.submitter.name === "Audience"
 
-        const hash:string = mem('hash') || "";
-        const memCode:string = mem('code') || "";
-        if(hash && memCode === rcValue){
-            socket.emit('clientRelogin', {name: nameValue, code: rcValue, hash: hash});
+        if(isAudienceJoin){
+            socket.emit('clientLogin', {name: nameValue, code: rcValue, audienceForce: true});
         }
         else{
-            socket.emit('clientLogin', {name: nameValue, code: rcValue});
+            const hash:string = mem('hash') || "";
+            const memCode:string = mem('code') || "";
+            if(hash && memCode === rcValue){
+                socket.emit('clientRelogin', {name: nameValue, code: rcValue, hash: hash});
+            }
+            else{
+                socket.emit('clientLogin', {name: nameValue, code: rcValue, token: isTwitch ? mem("TwitchToken") : null});
+            }
+            socket.on('errorJoin', (data) => {
+                setUnresolved(true);
+                socket.off('errorJoin');
+                if(data === "ROOM_NOT_FOUND") forgetCurrentRoom();
+            })
         }
+
         socket.on('youJoined', (data) => {
+            setUnresolved(true)
             pub_name = data.name;
             isAudience = data.isAudience;
             memSet('code', rcValue);
@@ -304,8 +326,8 @@ function Enterer({isTwitchLogined}:EntererBlock){
             return;
         }
         setJoinButtonStatus(0);
-        const result = await checkIsRoomExists(codeBlack);
-        if(result){
+        const result:any = await checkIsRoomExists(codeBlack);
+        if(result.res === "EXISTS"){
             setRcValue(codeBlack);
             setJoinButtonctive(1);
             setJoinButtonStatus(1);
@@ -335,7 +357,18 @@ function Enterer({isTwitchLogined}:EntererBlock){
                 <form onSubmit={(e) => tryConnect(e)}>
                     <input className={classNames(isTwitch ? "TwitchLocked" : null)} type="text" autoCapitalize='off' autoComplete='off' autoCorrect='off' onInput={onNameInput} value={nameValue} placeholder={inLoc.nickname} maxLength={12}/>
                     <input type="text" autoCapitalize='on' autoComplete='off' autoCorrect='off' name='c' id='c' value={rcValue} onInput={codeOnInput} className="roomcode" placeholder={inLoc.roomcode} maxLength={4}/>
-                    <input type='Submit' className={joinButtonIsActive ? "activeButton" : ""} defaultValue={inLoc[joinButtonStatus === 0 ? "play" : "reconnect"]}/>
+                    <div className='JoinButtons'>
+                        <input type='Submit' className={classNames("JoinButton", joinButtonIsActive ? "activeButton" : null, twitchReq ? "TwitchReq" : null)} defaultValue={
+                            inLoc[
+                                ConnectionResolve ?
+                                    joinButtonStatus === 0 ? "play" : "reconnect"
+                                : "loading"
+                            ]
+                            }/>
+                        {
+                            twitchReq ? <button name='Audience' className='activeButton JoinButton AudienceButton'>{inLoc.joinAud}</button> : null
+                        }
+                    </div>
                 </form>
                 <div className="socials">
                     <a href="https://discord.gg/Z4FARpFWDX/" target='__blank'>{inLoc.socials.ds}</a>·

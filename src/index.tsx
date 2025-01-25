@@ -98,7 +98,8 @@ function App(){
   })
 
   socket.on('disconnectRoom', () => {
-    console.log("disconnected")
+    console.log("disconnected");
+    localStorage.removeItem("code"); localStorage.removeItem("hash");
     openModal('oops', 'roomDestroyed', true)
   })
 

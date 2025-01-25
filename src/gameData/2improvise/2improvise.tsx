@@ -3,7 +3,7 @@ import '../replay.scoped.css'
 import { socket, code } from '../../index.tsx';
 import { useState, useEffect } from 'react';
 import localization from './localization.json'
-import { pub_name, mem } from '../../components/Enterer/Enterer.tsx';
+import { pub_name, mem, isAudience } from '../../components/Enterer/Enterer.tsx';
 import logoRu from './ru-logo.svg'
 import theone from './avatars/theone.png'
 import classNames from 'classnames';
@@ -80,6 +80,13 @@ function Post(props){
 
 function Lobby(props){
     const [curScene, changeScene] = useState<string>()
+
+    if(isAudience){
+        return <div className="Lobby nav">
+            <img src={logo} className='logo'/>
+        </div>
+    }
+
     const changeGroup = (num:number, name:string) => {
         req("changeGroup", num)
         changeScene(name)
@@ -205,14 +212,14 @@ function Improvise2(){
         console.log(data)
         if (!data) return
         const gameData = {
-            lobby: <Lobby isVip={data.title.isVip} stageData={data.title.stageData}/>,
+            lobby: <Lobby isVip={data.title?.isVip || false} stageData={data.title?.stageData}/>,
             voting: <Rating/>,
             skipTutorial: <SkipTutorial/>,
             wait: <Waiting text={data.title?.text}/>,
             ruaready: <AreYouReady/>,
-            titles: <Post isVip={data.title.isVip}/>,
+            titles: <Post isVip={data.title?.isVip}/>,
             titlevoting: <TitleVoting titles={data.title?.titles}/>,
-            improvising: <Improvising theme={data.title.theme} role={data.title?.role} opponent={data?.title.opponent}/>
+            improvising: <Improvising theme={data.title?.theme} role={data.title?.role} opponent={data?.title?.opponent}/>
         }
         console.log(data.taskName, "balls")
         socket.off('task')

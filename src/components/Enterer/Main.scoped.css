@@ -115,9 +115,14 @@
 
 .lol form .TwitchLocked{
   border-color: #6034b2;
-  pointer-events: none;
   cursor: not-allowed;
   user-select: none;
+}
+
+.lol .TwitchReq{
+  background-color: #6034b2 !important;
+  border-color: #6034b2 !important;
+  color: var(--main) !important;
 }
 
 .lol form input{
@@ -187,32 +192,48 @@
   }
 }
 
-.lol form input[type="Submit"]{
+.lol form .JoinButton{
   opacity: 0;
   width: 0;
   font-family: 'Cyrge';
   font-weight: 400;
+  width: 100%;
   height: 48px;
   border-radius: 10px;
   background-color: var(--main);
   border: 3px var(--main) solid;
   color: var(--darker);
   opacity: 0.5;
-  font-size: 15px;
+  font-size: 1rem;
   padding: 12px 20px;
   text-align: left;
   animation: showButton .7s cubic-bezier(0.81, 0.01, 0, 0.99) forwards;
   overflow: hidden;
   cursor: not-allowed;
+  transition: none;
 }
 
-.lol form .activeButton[type="Submit"]{
+.lol form .AudienceButton{
+  animation: none;
+  width: 75%;
+  text-align: center;
+  font-size: clamp(.5rem, 4vw, 1rem);
+  line-height: clamp(.5rem, 4vw, 1rem);
+  padding: 5px 10px;
+}
+
+.lol form .JoinButtons{
+  display: flex;
+  gap: 7px;
+}
+
+.lol form .activeButton{
   cursor: pointer;
   color: var(--bg);
   opacity: 1;
 }
 
-.lol form .activeButton[type="Submit"]:hover{
+.lol form .activeButton:hover{
   opacity: 0.9;
 }
 
