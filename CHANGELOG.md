@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.9](https://github.com/puskanyaww/attic.lol.react/compare/v2.0.8...v2.0.9) (2025-01-28)
+
 ### 2.0.8 (2025-01-25)
 
 ### 2.0.7 (2025-01-25)
