@@ -9,6 +9,24 @@ body {
   background-color: rgb(12, 12, 12);
 }
 
+@font-face {
+  font-family: 'Cyrge';
+  src: url(shared/fonts/TildaSans-Medium.woff);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Cyrge';
+  src: url(shared/fonts/TildaSans-Light.woff);
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Cyrge';
+  src: url(shared/fonts/TildaSans-Black.woff);
+  font-weight: 1000;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

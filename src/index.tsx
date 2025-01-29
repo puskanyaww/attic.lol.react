@@ -3,46 +3,19 @@ import reportWebVitals from './reportWebVitals.js';
 import React, { JSX, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import io from 'socket.io-client';
-import axios from 'axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Enterer from './components/Enterer/Enterer.tsx';
-import Recaps, { RecapInfoView } from './components/Recaps/Recaps.tsx';
-import ModalWindow from './components/ModalNotifs/ModalNotifs.tsx';
-//games
-import Improvise2 from './gameData/2improvise/2improvise.tsx';
-// import AtticOutside from './components/Outside/Outside.tsx';
+import Recaps, { RecapInfoView } from './ui-components/Recaps/Recaps.tsx';
+import ModalWindow from './ui-components/ModalNotifs/ModalNotifs.tsx';
 import { locale } from './utils/locale.ts';
-import TestGame from './gameData/testGame/testGame.jsx';
-import EntererLoader from './components/Enterer/Enterer.tsx';
 
-
-const getLocaleByIp = async () => {
-  try {
-    const response = await axios.get('https://ipinfo.io/json?token=22e8f2beba59b3'); const {country} = response.data;
-    const lc = {
-      'US': 'en',
-      'UK': 'en',
-      'RU': 'ru',
-      'UA': 'ru'
-    };
-    if(country ==="UA"){
-      localStorage.setItem('ua_notif', "0")
-    }
-    const language = lc[country] || 'en';
-    return language;
-  } catch (error) {
-    return 'en';
-  }
-};
+//GAME IMPORTS!!! GAME ONLY
+import Improvise2 from './games-shared/2improvise/2improvise.tsx';
+import TestGame from './games-shared/testGame/testGame.jsx';
+import EntererLoader from './ui-components/Enterer/Enterer.tsx';
+import Nerdieverse from './games-shared/nerdieverse/Nerdieverse.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
-
-
-if(!localStorage.getItem("locale")){
-  const locale = await getLocaleByIp();
-  console.log(locale)
-  localStorage.setItem("locale", locale)
-}
+if(!localStorage.getItem("locale")) localStorage.setItem("locale", await locale.getLocaleByIp());
 
 root.render(
   <React.StrictMode>
@@ -52,26 +25,14 @@ root.render(
 
 export const isLocalTesting = false
 const serverUrl = isLocalTesting ? "http://localhost:4020" : "wss://trgu.ru"
-export const socket = io(serverUrl, {transports: ['websocket', 'polling', 'flashsocket']});
+export const socket = io(serverUrl, { transports: ['websocket', 'polling', 'flashsocket'] });
 
 const AppManifest = {
   rc: <EntererLoader />,
   "2improvise": <Improvise2 />,
-  testGame: <TestGame/>
+  testGame: <TestGame/>,
+  lilAdventure: <Nerdieverse/>
 };
-
-function ServerUrlConnection(){
-  const [status, setStatus] = useState<string | boolean>("pending");
-
-  socket.on("connect", () => {
-    setStatus(socket.connected ? "connected" : "failed")
-    socket.off("connect")
-  })
-
-  return <div style={{backgroundColor: '#fff'}}>
-    Connection status: {status}
-  </div>
-}
 
 function App(){
   const [black, setBlack] = useState<JSX.Element>(AppManifest.rc);
@@ -124,10 +85,17 @@ function App(){
         <Route path='/' element={black}/>
         <Route path='/recaps/*' element={<RecapInfoView/>}/>
         <Route path='/recaps' element={<Recaps/>}/>
-        {/* <Route path='/outside' element={<AtticOutside/>}/> */}
-        <Route path='/serverUrlConnection' element={<ServerUrlConnection/>}/>
         <Route path='/*' element={black}/>
-        {Object.keys(AppManifest).map(App => <Route key={App} path={'/test/' + App} element={AppManifest[App]}/>)}
+
+        {
+        Object.keys(AppManifest).map(
+          App => <Route
+            key={App}
+            path={'/test/' + App}
+            element={AppManifest[App]}
+          />
+        )
+        }
       </Routes>
       {
         modalUtil[0] ? <ModalWindow key={modalUtil[3]} textBig={modalUtil[1]} textLittle={modalUtil[2]} OnClose={closeModal}/> : null
@@ -136,10 +104,8 @@ function App(){
   );
 }
 
-let name = "Attician1";
-let code;
-let pid;
-
+let name:String = "Attician1";
+let code:String;
 function isValidJSON(test){
   try {
       JSON.parse(test);
@@ -149,6 +115,6 @@ function isValidJSON(test){
   }
 }
 
-export { name, code, pid};
+export { name, code};
 export { isValidJSON };
 reportWebVitals();

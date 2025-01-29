@@ -27,16 +27,18 @@ class TwitchLogin{
 
     username:string = ""
     async setUserInfo(token){
-        const response = await fetch("https://api.twitch.tv/helix/users", {
+        this.isLogined = false;
+        const response:any = await fetch("https://api.twitch.tv/helix/users", {
             method: "GET",
             headers: {
                 Authorization: "Bearer " + token,
                 "Client-Id": "jbuvobuhzor8wloh85lfu8syd7c88h",
             },
-        }).then(r => r.json())
-
-        const data = response.data[0]
-        
+        })
+        if(!response.ok) return;
+        this.isLogined = true;
+        const json = await response.json()
+        const data = json?.data[0]
         this.username = data.display_name
     }
 }

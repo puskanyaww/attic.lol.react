@@ -1,0 +1,15 @@
+@font-face {
+    font-family: PixeloidMono;
+    src: url(fonts/PixeloidMono.ttf);
+}
+
+@font-face {
+    font-family: Pixeloid;
+    src: url(fonts/PixeloidSans.ttf);
+}
+
+@font-face {
+    font-family: Pixeloid;
+    src: url(fonts/PixeloidSans-Bold.ttf);
+    font-weight: 700;
+}
