@@ -1,6 +1,6 @@
 {
   "name": "attic.lol",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.9.0",
