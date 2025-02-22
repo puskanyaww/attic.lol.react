@@ -1,5 +1,4 @@
 import './index.css';
-import reportWebVitals from './reportWebVitals.js';
 import React, { JSX, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import io from 'socket.io-client';
@@ -31,7 +30,7 @@ const AppManifest = {
   rc: <EntererLoader />,
   "2improvise": <Improvise2 />,
   testGame: <TestGame/>,
-  lilAdventure: <Nerdieverse/>
+  nerdieverse: <Nerdieverse/>
 };
 
 function App(){
@@ -117,4 +116,3 @@ function isValidJSON(test){
 
 export { name, code};
 export { isValidJSON };
-reportWebVitals();

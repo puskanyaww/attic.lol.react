@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'SignPainter';
-    src: url(signpainter_housescript.otf);
+    src: url(Assets/fonts/signpainter_housescript.otf);
 }
 
 @font-face {
     font-family: 'GeometricSlabSerif';
-    src: url(GeometricSlabserif712-Medium.ttf);
+    src: url(Assets/fonts/GeometricSlabserif712-Medium.ttf);
 }
 
 @font-face {
     font-family: 'GeometricSlabSerif';
-    src: url(GeometricSlabserif712-ExtBd.ttf);
+    src: url(Assets/fonts/GeometricSlabserif712-ExtBd.ttf);
     font-weight: 1000;
 }
 
@@ -18,7 +18,7 @@
     width: 100%;
     height: 100vh;
     background-color: #fff;
-    background-image: url(scenes/main.jpg);
+    background-image: url(Assets/scenes/main.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -26,19 +26,23 @@
 
 /* scenes */
 .Imp2 .Lobby .regular{
-    background-image: url(scenes/main.jpg);
+    background-image: url(Assets/scenes/main.jpg);
+}
+
+.Imp2 .Lobby .elevator{
+    background-image: url(Assets/scenes/elevator.jpg);
 }
 
 .Imp2 .Lobby .gravy{
-    background-image: url(scenes/gravy.jpg);
+    background-image: url(Assets/scenes/gravy.jpg);
 }
 
 .Imp2 .Lobby .soulsFate{
-    background-image: url(scenes/imaginary.jpg);
+    background-image: url(Assets/scenes/imaginary.jpg);
 }
 
-.Imp2 .Lobby .soulsFate2{
-    background-image: url(scenes/imaginary.jpg);
+.Imp2 .Lobby .rap{
+    background-image: url(Assets/scenes/rap.jpg);
 }
 
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, JSX } from 'react';
 import localization from './localization.json'
 import logo from '../../shared/logo.svg';
 import settings from './Assets/settings.svg';

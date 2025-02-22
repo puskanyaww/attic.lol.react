@@ -4,12 +4,12 @@ import { socket, code } from '../../index.tsx';
 import { useState, useEffect } from 'react';
 import localization from './localization.json'
 import { pub_name, mem, isAudience } from '../../ui-components/Enterer/Enterer.tsx';
-import logoRu from './ru-logo.svg'
-import theone from './avatars/theone.png'
+import logoRu from './Assets/ru-logo.svg'
+import theone from './Assets/avatars/theone.png'
 import classNames from 'classnames';
-import sob from './sob.png';
-import angry from './angry.png';
-import norm from './normal.png';
+import sob from './Assets/sob.png';
+import angry from './Assets/angry.png';
+import norm from './Assets/normal.png';
 import React from 'react';
 import { locale } from '../../utils/locale.ts';
 const media = {

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import { socket } from '../../index.tsx';
 
-import en from './nerdieverse.png'
+import en from './logo_en.png'
 import { locale } from '../../utils/locale.ts';
 const logos = {
     en: en
