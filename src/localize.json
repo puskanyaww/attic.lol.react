@@ -1,0 +1,54 @@
+{
+    "en": {
+        "translation": {
+            "name": "NICKNAME",
+            "code": "ROOM CODE",
+            "play": "PLAY",
+            "rejoin": "REJOIN",
+            "twitch": "Login via",
+            "twitch_unlogin": "Logoff",
+            "theme": "Appearance",
+            "lang": "Language",
+            "news": "Last News",
+            "recaps": "Game Recaps",
+            "discord": "Discord Server",
+            "disconnected": "Disconnected",
+            "join_error": "Join Error",
+            "room_not_found": "Room not found.",
+            "invalid_nickname": "Invalid nickname.",
+            "room_destroyed": "Room was cruelly destroyed.",
+            "error_join": "Join error.",
+            "ok_modal": "Got it",
+
+            "send": "Send",
+            "startGame": "Start Game",
+            "ready": "Ready"
+        }
+    },
+    "ru": {
+        "translation": {
+            "name": "НИКНЕЙМ",
+            "code": "КОД КОМНАТЫ",
+            "play": "ИГРАТЬ",
+            "rejoin": "ПЕРЕЗАЙТИ",
+            "twitch": "Войти в",
+            "twitch_unlogin": "Отключить",
+            "theme": "Тема",
+            "lang": "Язык",
+            "news": "Последние новости",
+            "recaps": "Повторы игр",
+            "discord": "Discord-сервер",
+            "disconnected": "Отключено",
+            "join_error": "Ошибка входа",
+            "room_not_found": "Комната не найдена.",
+            "invalid_nickname": "Неверный никнейм.",
+            "room_destroyed": "Комната была жестоко уничтожена.",
+            "error_join": "Ошибка входа.",
+            "ok_modal": "Хорошо",
+
+            "send": "Отправить",
+            "startGame": "Начать игру",
+            "ready": "Готово"
+        }
+    }
+}

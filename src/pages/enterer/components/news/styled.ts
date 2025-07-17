@@ -1,0 +1,19 @@
+import styled from "styled-components";
+
+export const EntererNewsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    h1{
+        font-size: clamp(0.7rem, 6.5vw, 2rem);
+        margin: 0;
+    }
+`
+
+export const NewsContent = styled.div`
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ffffff10;
+`
